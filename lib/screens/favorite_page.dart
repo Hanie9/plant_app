@@ -3,7 +3,9 @@ import 'package:plant_app/models/plant.dart';
 import 'package:plant_app/widgets/plantWidget.dart';
 
 class FavoritePage extends StatefulWidget {
+  // ignore: non_constant_identifier_names
   final List<Plant> FavoritedPlants;
+  // ignore: non_constant_identifier_names
   const FavoritePage({super.key, required this.FavoritedPlants});
 
   @override
@@ -33,6 +35,7 @@ class _FavoritePageState extends State<FavoritePage> {
               'ظاهرا به هیچی علاقه نداشتی :-|',
               textDirection: TextDirection.rtl,
               style: TextStyle(
+                fontFamily: 'iransans',
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
               ),

@@ -1,3 +1,7 @@
+// ignore_for_file: file_names
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
@@ -18,6 +22,7 @@ class _DetailPageState extends State<DetailPage> {
   bool toggleisselected(bool isSelected){
     return !isSelected;
   }
+  bool kharid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -90,30 +95,43 @@ class _DetailPageState extends State<DetailPage> {
                     ),
                   ),
                   // plant feature
-                  Positioned(
-                    top: 30.0,
-                    right: 0.0,
-                    child: SizedBox(
-                      height: 200.0,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          PlantFeature(
-                            title: 'اندازه گیاه',
-                            plantFeature: plantList[widget.plantId].size,
+                  Stack(
+                    children:[
+                      Positioned(
+                        top: 30.0,
+                        right: 0.0,
+                        child: SizedBox(
+                          height: 200.0,
+                          child: Stack(
+                            children:[
+                              ClipRRect(
+                                child: BackdropFilter(
+                                  filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      PlantFeature(
+                                        title: 'اندازه گیاه',
+                                        plantFeature: plantList[widget.plantId].size,
+                                      ),
+                                      PlantFeature(
+                                        title: 'رطوبت‌هوا',
+                                        plantFeature: plantList[widget.plantId].humidity.toString(),
+                                      ),
+                                      PlantFeature(
+                                        title: 'دمای‌نگه‌داری',
+                                        plantFeature: plantList[widget.plantId].temperature,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          PlantFeature(
-                            title: 'رطوبت‌هوا',
-                            plantFeature: plantList[widget.plantId].humidity.toString().farsiNumber,
-                          ),
-                          PlantFeature(
-                            title: 'دمای‌نگه‌داری',
-                            plantFeature: plantList[widget.plantId].temperature.toString().farsiNumber,
-                          ),
-                        ],
+                        ),
                       ),
-                    ),
+                    ],
                   ),
                 ],
               ),
@@ -148,8 +166,9 @@ class _DetailPageState extends State<DetailPage> {
                           Text(
                             plantList[widget.plantId].rating.toString().farsiNumber,
                             style: TextStyle(
+                              fontFamily: 'Lalezar',
                               color: Constant.primaryColor,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w400,
                               fontSize: 23.0,
                             ),
                           ),
@@ -161,9 +180,10 @@ class _DetailPageState extends State<DetailPage> {
                           Text(
                             plantList[widget.plantId].plantName,
                             style: TextStyle(
+                              fontFamily: 'Yekan Bakh',
                               fontWeight: FontWeight.bold,
                               color: Constant.primaryColor,
-                              fontSize: 30.0,
+                              fontSize: 27.0,
                             ),
                           ),
                           const SizedBox(
@@ -181,9 +201,10 @@ class _DetailPageState extends State<DetailPage> {
                               Text(
                                 plantList[widget.plantId].price.toString().farsiNumber,
                                 style: TextStyle(
+                                  fontFamily: 'Lalezar',
                                   fontSize: 24.0,
                                   color: Constant.blackColor,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ],
@@ -202,6 +223,7 @@ class _DetailPageState extends State<DetailPage> {
                     style: TextStyle(
                       color: Constant.blackColor.withOpacity(0.7),
                       height: 1.6,
+                      fontFamily: 'iransans',
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
                     ),
@@ -245,6 +267,7 @@ class _DetailPageState extends State<DetailPage> {
                   label: Text(
                     Plant.addedToCartPlants().length.toString(),
                     style: const TextStyle(
+                      fontFamily: 'Yekan Bakh',
                       fontWeight: FontWeight.bold,
                       fontSize: 15.0
                     ),
@@ -261,6 +284,62 @@ class _DetailPageState extends State<DetailPage> {
             const SizedBox(
               width: 20.0,
             ),
+            kharid == false ? Expanded(
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Constant.primaryColor,
+                  boxShadow: [
+                    BoxShadow(
+                      offset: const Offset(0.0, 1.1),
+                      blurRadius: 5.0,
+                      color: Constant.primaryColor.withOpacity(0.3),
+                    ),
+                  ],
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Constant.primaryColor
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      bool isSelected = toggleisselected(plantList[widget.plantId].isSelected);
+                      plantList[widget.plantId].isSelected = isSelected;
+                      kharid = true;
+                    });
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            padding: const EdgeInsets.all(10.0),
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(20.0))
+                            ),
+                            behavior: SnackBarBehavior.fixed,
+                            content: Center(
+                              child: Text(
+                                'گیاه ${plantList[widget.plantId].plantName} با موفقیت به سبد‌خرید اضافه شد',
+                                style: const TextStyle(
+                                  fontSize: 16.0,
+                                  fontFamily: 'iransans',
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+                                ),
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                  child: const Text(
+                    "افزودن‌به‌سبد‌خرید",
+                    style: TextStyle(
+                      fontFamily: 'iransans',
+                      fontSize: 20.0,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              ),
+            ) :
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -282,6 +361,7 @@ class _DetailPageState extends State<DetailPage> {
                     setState(() {
                       bool isSelected = toggleisselected(plantList[widget.plantId].isSelected);
                       plantList[widget.plantId].isSelected = isSelected;
+                      kharid = false;
                     });
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
@@ -292,8 +372,9 @@ class _DetailPageState extends State<DetailPage> {
                             behavior: SnackBarBehavior.fixed,
                             content: Center(
                               child: Text(
-                                'گیاه ${plantList[widget.plantId].plantName} با موفقیت به سبد‌خرید اضافه شد',
+                                'گیاه ${plantList[widget.plantId].plantName} با موفقیت از سبدخرید حذف شد',
                                 style: const TextStyle(
+                                  fontFamily: 'iransans',
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white
@@ -304,16 +385,17 @@ class _DetailPageState extends State<DetailPage> {
                         );
                       },
                   child: const Text(
-                    "افزودن‌به‌سبد‌خرید",
+                    'حذف‌از‌سبد‌خرید',
                     style: TextStyle(
+                      fontFamily: 'iransans',
                       fontSize: 20.0,
                       color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -338,6 +420,7 @@ class PlantFeature extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
+            fontFamily: 'Yekan Bakh',
             color: Constant.blackColor,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
@@ -346,6 +429,7 @@ class PlantFeature extends StatelessWidget {
         Text(
           plantFeature,
           style: TextStyle(
+            fontFamily: 'iransans',
             color: Constant.primaryColor,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,

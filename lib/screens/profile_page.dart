@@ -49,6 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 Text(
                   'ساناز امینی',
                   style: TextStyle(
+                    fontFamily: 'iransans',
                     color: Constant.blackColor,
                     fontSize: 20.0,
                   ),
@@ -69,6 +70,7 @@ class _ProfilePageState extends State<ProfilePage> {
             Text(
               'sanaz@gmail.com',
               style: TextStyle(
+                fontFamily: 'iransans',
                 color: Constant.blackColor.withOpacity(0.4),
                 fontSize: 16.0,
               ),

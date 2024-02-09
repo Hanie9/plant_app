@@ -98,6 +98,7 @@ class _ScanPageState extends State<ScanPage> {
                       'برای اسکن گیاه کلیک کنید',
                       style: TextStyle(
                         color: Constant.primaryColor.withOpacity(0.8),
+                        fontFamily: 'iransans',
                         fontSize: 20.0,
                         fontWeight: FontWeight.bold,
                       ),

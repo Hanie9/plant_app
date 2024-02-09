@@ -41,6 +41,7 @@ class _CartPageState extends State<CartPage> {
               'سبد خرید تار عنکبوت بسته است :(',
               textDirection: TextDirection.rtl,
               style: TextStyle(
+                fontFamily: 'iransans',
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
               ),
@@ -94,6 +95,7 @@ class _CartPageState extends State<CartPage> {
                     const Text(
                       'جمع کل',
                       style: TextStyle(
+                        fontFamily: 'iransans',
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
                       ),

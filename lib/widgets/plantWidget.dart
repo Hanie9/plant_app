@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
@@ -50,6 +52,7 @@ class NewPlantWidget extends StatelessWidget {
                 Text(
                   _plantList[index].price.toString().farsiNumber,
                   style: TextStyle(
+                    fontFamily: 'Lalezar',
                     color: Constant.primaryColor,
                     fontSize: 20.0,
                   ),
@@ -86,11 +89,13 @@ class NewPlantWidget extends StatelessWidget {
                         _plantList[index].category,
                         style: const TextStyle(
                           fontSize: 13.0,
+                          fontFamily: 'iransans'
                         ),
                       ),
                       Text(
                         _plantList[index].plantName,
                         style: TextStyle(
+                          fontFamily: 'Yekan Bakh',
                           fontSize: 18.0,
                           color: Constant.blackColor,
                         ),

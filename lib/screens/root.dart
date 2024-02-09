@@ -67,9 +67,10 @@ class _RootPageState extends State<RootPage> {
               Text(
                 appbartitle[bottomindex],
                 style: TextStyle(
+                  fontFamily: 'Yekan Bakh',
                   color: Constant.blackColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 22.0,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.0,
                 ),
               ),
             ],

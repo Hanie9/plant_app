@@ -72,9 +72,12 @@ class _HomePageState extends State<HomePage> {
                             showCursor: false,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(right: 5.0),
-                              hintText: "جستجو...",
+                              hintText: "جستجو ...",
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
+                              hintStyle: TextStyle(
+                                fontFamily: 'iransans',
+                              )
                             ),
                           ),
                         ),
@@ -106,6 +109,7 @@ class _HomePageState extends State<HomePage> {
                       child: Text(
                         _plantTypes[index],
                         style: TextStyle(
+                          fontFamily: 'Yekan Bakh',
                           fontSize: 16.0,
                           fontWeight: selectedindex == index ? FontWeight.bold : FontWeight.w300,
                           color: selectedindex == index ? Constant.primaryColor : Constant.blackColor,
@@ -186,11 +190,13 @@ class _HomePageState extends State<HomePage> {
                                 borderRadius: BorderRadius.circular(20.0)
                               ),
                               child: Text(
-                                r'$' + _plantList[index].price.toString().farsiNumber,
+                                '${_plantList[index].price.toString().farsiNumber}ت',
+                                textDirection: TextDirection.rtl,
                                 style: TextStyle(
+                                  fontFamily: 'Lalezar',
                                   color: Constant.primaryColor,
                                   fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ),
@@ -204,6 +210,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   _plantList[index].category,
                                   style: const TextStyle(
+                                    fontFamily: 'iransans',
                                     fontSize: 14.0,
                                     color: Colors.white70,
                                   ),
@@ -211,6 +218,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   _plantList[index].plantName,
                                   style: const TextStyle(
+                                    fontFamily: 'Yekan Bakh',
                                     fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white70,
@@ -233,6 +241,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text(
                 "گیاهان جدید",
                 style: TextStyle(
+                  fontFamily: 'iransans',
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,

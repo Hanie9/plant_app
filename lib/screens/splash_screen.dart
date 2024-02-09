@@ -56,6 +56,7 @@ class _HomePageState extends State<HomePage> {
               child: const Text(
                 "رد کردن",
                 style: TextStyle(
+                  fontFamily: 'iransans',
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
                   fontSize: 18.0,
@@ -164,6 +165,7 @@ class CreatePage extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: TextStyle(
+              fontFamily: 'iransans',
               fontWeight: FontWeight.bold,
               fontSize: 25.0,
               color: Constant.primaryColor,
@@ -176,6 +178,7 @@ class CreatePage extends StatelessWidget {
             description,
             textAlign: TextAlign.center,
             style: const TextStyle(
+              fontFamily: 'Yekan Bakh',
               fontWeight: FontWeight.w500,
               fontSize: 20.0,
               color: Colors.grey,

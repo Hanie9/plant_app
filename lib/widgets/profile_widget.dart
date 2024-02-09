@@ -26,6 +26,7 @@ class BuildOptions extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
+                  fontFamily: 'Yekan Bakh',
                   color: Constant.blackColor,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
