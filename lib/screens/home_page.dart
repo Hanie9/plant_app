@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
 
   int selectedindex = 0;
 
-  final List<Plant> _plantList = Plant.plantList; 
+  final List<Plant> _plantList = Plant.plantList;
 
   bool toggleIsFavorite(bool isFavorite){
     return !isFavorite;
@@ -53,15 +53,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                   width: size.width * 0.9,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Row(
+                  child: const Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
                         Icons.mic,
-                        color: Constant.blackColor.withOpacity(0.6),
                       ),
-                      const Expanded(
+                      Expanded(
                         child: Directionality(
                           textDirection: TextDirection.rtl,
                           child: TextField(
@@ -84,7 +83,6 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Icon(
                         Icons.search,
-                        color: Constant.blackColor.withOpacity(0.6),
                       ),
                     ],
                   ),
@@ -112,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                           fontFamily: 'Yekan Bakh',
                           fontSize: 16.0,
                           fontWeight: selectedindex == index ? FontWeight.bold : FontWeight.w300,
-                          color: selectedindex == index ? Constant.primaryColor : Constant.blackColor,
+                          color: selectedindex == index ? Constant.primaryColor : null,
                         ),
                       ),
                     ),
@@ -244,7 +242,6 @@ class _HomePageState extends State<HomePage> {
                   fontFamily: 'iransans',
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.black87,
                 ),
               ),
             ),

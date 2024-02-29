@@ -145,9 +145,8 @@ class _DetailPageState extends State<DetailPage> {
               padding: const EdgeInsets.only(top: 80.0, right: 30.0, left: 30.0),
               height: size.height * (0.5),
               width: size.width,
-              decoration: BoxDecoration(
-              color: Constant.primaryColor.withOpacity(0.5),
-              borderRadius: const BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0))
+              decoration: const BoxDecoration(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(30.0), topRight: Radius.circular(30.0))
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -203,8 +202,8 @@ class _DetailPageState extends State<DetailPage> {
                                 style: TextStyle(
                                   fontFamily: 'Lalezar',
                                   fontSize: 24.0,
-                                  color: Constant.blackColor,
                                   fontWeight: FontWeight.w500,
+                                  color: Constant.primaryColor,
                                 ),
                               ),
                             ],
@@ -220,8 +219,7 @@ class _DetailPageState extends State<DetailPage> {
                     plantList[widget.plantId].decription,
                     textDirection: TextDirection.rtl,
                     textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      color: Constant.blackColor.withOpacity(0.7),
+                    style: const TextStyle(
                       height: 1.6,
                       fontFamily: 'iransans',
                       fontWeight: FontWeight.bold,
@@ -251,7 +249,6 @@ class _DetailPageState extends State<DetailPage> {
                 height: 50.0,
                 width: 50.0,
                 decoration: BoxDecoration(
-                  color: Constant.primaryColor.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(50.0),
                   boxShadow: [
                     BoxShadow(
@@ -262,7 +259,6 @@ class _DetailPageState extends State<DetailPage> {
                   ],
                 ),
                 child: Badge(
-                  backgroundColor: Constant.primaryColor.withOpacity(0.6),
                   isLabelVisible: Plant.addedToCartPlants().isEmpty ? false : true,
                   label: Text(
                     Plant.addedToCartPlants().length.toString(),
@@ -321,7 +317,6 @@ class _DetailPageState extends State<DetailPage> {
                                   fontSize: 16.0,
                                   fontFamily: 'iransans',
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white
                                 ),
                               ),
                             ),
@@ -377,7 +372,6 @@ class _DetailPageState extends State<DetailPage> {
                                   fontFamily: 'iransans',
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
-                                  color: Colors.white
                                 ),
                               ),
                             ),
@@ -419,9 +413,8 @@ class PlantFeature extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'Yekan Bakh',
-            color: Constant.blackColor,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
           ),

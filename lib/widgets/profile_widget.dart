@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:plant_app/const/constants.dart';
 
 class BuildOptions extends StatelessWidget {
   final IconData icon;
@@ -15,19 +14,17 @@ class BuildOptions extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
+          const Icon(
             Icons.arrow_back_ios,
             size: 16.0,
-            color: Constant.blackColor.withOpacity(0.4),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
                 title,
-                style: TextStyle(
+                style: const TextStyle(
                   fontFamily: 'Yekan Bakh',
-                  color: Constant.blackColor,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
@@ -37,7 +34,6 @@ class BuildOptions extends StatelessWidget {
               ),
               Icon(
                 icon,
-                color: Constant.blackColor.withOpacity(0.5),
                 size: 23.0,
               ),
             ],

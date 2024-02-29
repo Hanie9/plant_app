@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
+import 'package:plant_app/screens/setting.dart';
 import 'package:plant_app/widgets/profile_widget.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -46,11 +48,10 @@ class _ProfilePageState extends State<ProfilePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   'ساناز امینی',
                   style: TextStyle(
                     fontFamily: 'iransans',
-                    color: Constant.blackColor,
                     fontSize: 20.0,
                   ),
                 ),
@@ -67,11 +68,10 @@ class _ProfilePageState extends State<ProfilePage> {
               height: 10.0,
             ),
             // profile email
-            Text(
+            const Text(
               'sanaz@gmail.com',
               style: TextStyle(
                 fontFamily: 'iransans',
-                color: Constant.blackColor.withOpacity(0.4),
                 fontSize: 16.0,
               ),
             ),
@@ -82,15 +82,24 @@ class _ProfilePageState extends State<ProfilePage> {
             SizedBox(
               height: size.height * (0.4),
               width: size.width,
-              child: const Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // back button
-                  BuildOptions(icon: Icons.person, title: 'پروفایل من',),
-                  BuildOptions(icon: Icons.settings, title: 'تنظیمات',),
-                  BuildOptions(icon: Icons.notifications, title: 'اطلاع رسانی‌ها',),
-                  BuildOptions(icon: Icons.share, title: 'شبکه‌های اجتماعی',),
-                  BuildOptions(icon: Icons.logout, title: 'خروج',),
+                  const BuildOptions(icon: Icons.person, title: 'پروفایل من',),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, PageTransition(
+                        child: const Settings(),
+                        type: PageTransitionType.bottomToTop,
+                        ),
+                      );
+                    },
+                    child: const BuildOptions(icon: Icons.settings, title: 'تنظیمات',),
+                  ),
+                  const BuildOptions(icon: Icons.notifications, title: 'اطلاع رسانی‌ها',),
+                  const BuildOptions(icon: Icons.share, title: 'شبکه‌های اجتماعی',),
+                  const BuildOptions(icon: Icons.logout, title: 'خروج',),
                 ],
               ),
             ),

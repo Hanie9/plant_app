@@ -39,6 +39,13 @@ dependencies:
   page_transition: ^2.1.0
   mobile_scanner: ^4.0.0
   badges: ^3.1.2
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.18.1
+  easy_localization: ^3.0.4
+  language_picker: ^0.4.3
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:

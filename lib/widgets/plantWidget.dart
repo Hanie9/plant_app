@@ -89,7 +89,8 @@ class NewPlantWidget extends StatelessWidget {
                         _plantList[index].category,
                         style: const TextStyle(
                           fontSize: 13.0,
-                          fontFamily: 'iransans'
+                          fontFamily: 'iransans',
+                          fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
