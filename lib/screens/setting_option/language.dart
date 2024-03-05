@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:plant_app/const/constants.dart';
 
 class Language extends StatefulWidget {
@@ -9,6 +10,8 @@ class Language extends StatefulWidget {
 }
 
 class _LanguageState extends State<Language> {
+
+  final FlutterLocalization _localization = FlutterLocalization.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +32,11 @@ class _LanguageState extends State<Language> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               right: 0.0,
               child: Text(
-                'زبان‌ها',
-                style: TextStyle(
+                AppLocale.language.getString(context),
+                style: const TextStyle(
                   fontFamily: 'iransans'
                 ),
               ),
@@ -41,10 +44,32 @@ class _LanguageState extends State<Language> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(
-          
+      body: Container(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Expanded(
+                  child: ElevatedButton(
+                    child: const Text('English'),
+                    onPressed: () {
+                      _localization.translate('en');
+                    },
+                  ),
+                ),
+                const SizedBox(width: 8.0),
+                Expanded(
+                  child: ElevatedButton(
+                    child: const Text('persian'),
+                    onPressed: () {
+                      _localization.translate('fa');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

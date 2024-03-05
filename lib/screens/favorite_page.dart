@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
+import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/models/plant.dart';
 import 'package:plant_app/widgets/plantWidget.dart';
 
@@ -31,13 +33,17 @@ class _FavoritePageState extends State<FavoritePage> {
             const SizedBox(
               height: 20.0,
             ),
-            const Text(
-              'ظاهرا به هیچی علاقه نداشتی :-|',
-              textDirection: TextDirection.rtl,
-              style: TextStyle(
-                fontFamily: 'iransans',
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                AppLocale.favorite.getString(context),
+                textAlign: TextAlign.center,
+                textDirection: TextDirection.rtl,
+                style: const TextStyle(
+                  fontFamily: 'iransans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20.0,
+                ),
               ),
             ),
           ],

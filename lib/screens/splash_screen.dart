@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/screens/root.dart';
 
@@ -53,9 +54,9 @@ class _HomePageState extends State<HomePage> {
             padding: const EdgeInsets.only(top: 20.0, right: 20.0,),
             child: InkWell(
               onTap: (){},
-              child: const Text(
-                "رد کردن",
-                style: TextStyle(
+              child: Text(
+                AppLocale.radsplash.getString(context),
+                style: const TextStyle(
                   fontFamily: 'iransans',
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
@@ -78,18 +79,18 @@ class _HomePageState extends State<HomePage> {
             children: [
               CreatePage(
                 image: 'assets/images/1_1.png',
-                title: Constant.titleOne,
-                description: Constant.descriptionOne,
+                title: AppLocale.titleOne.getString(context),
+                description: AppLocale.descriptionOne.getString(context),
               ),
               CreatePage(
                 image: 'assets/images/6_6.png',
-                title: Constant.titleTwo,
-                description: Constant.descriptionTwo,
+                title: AppLocale.titleTwo.getString(context),
+                description: AppLocale.descriptionTwo.getString(context),
               ),
               CreatePage(
                 image: 'assets/images/5_5.png',
-                title: Constant.titleThree,
-                description: Constant.descriptionThree,
+                title: AppLocale.titleThree.getString(context),
+                description: AppLocale.descriptionThree.getString(context),
               ),
             ],
           ),

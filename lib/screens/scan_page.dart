@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -95,7 +96,7 @@ class _ScanPageState extends State<ScanPage> {
                       height: 20.0,
                     ),
                     Text(
-                      'برای اسکن گیاه کلیک کنید',
+                      AppLocale.scan.getString(context),
                       style: TextStyle(
                         color: Constant.primaryColor.withOpacity(0.8),
                         fontFamily: 'iransans',

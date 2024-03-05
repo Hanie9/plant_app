@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/main.dart';
 import 'package:provider/provider.dart';
@@ -31,11 +32,11 @@ class _ThemeChooserPageState extends State<ThemeChooserPage> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               right: 0.0,
               child: Text(
-                'زمینه‌ها',
-                style: TextStyle(
+                AppLocale.themes.getString(context),
+                style: const TextStyle(
                   fontFamily: 'iransans'
                 ),
               ),
@@ -48,9 +49,9 @@ class _ThemeChooserPageState extends State<ThemeChooserPage> {
         onChanged: (value) {
           themeNotifier.toggleTheme();
         },
-        title: const Text(
-          'زمینه سیاه',
-          style: TextStyle(
+        title: Text(
+          AppLocale.darkTheme.getString(context),
+          style: const TextStyle(
             fontSize: 17.0,
             fontFamily: "Yekan Bakh",
             fontWeight: FontWeight.w600,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/models/plant.dart';
@@ -23,20 +24,20 @@ class _HomePageState extends State<HomePage> {
     return !isFavorite;
   }
 
-  final List<String> _plantTypes = [
-    '| پیشنهادی |',
-    '| آپارتمانی |',    
-    '| محل‌کار |', 
-    '| گل باغچه ای |', 
-    '| گل سمی |', 
-  ];
-
 
 
   @override
   Widget build(BuildContext context) {
 
     Size size = MediaQuery.of(context).size;
+
+    final List<String> _plantTypes = [
+    AppLocale.pishnahadi.getString(context),
+    AppLocale.apartemani.getString(context),    
+    AppLocale.mahaleKar.getString(context), 
+    AppLocale.baghche.getString(context), 
+    AppLocale.sammi.getString(context), 
+  ];
 
 
     return Scaffold(
@@ -53,11 +54,11 @@ class _HomePageState extends State<HomePage> {
                   ),
                   width: size.width * 0.9,
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: const Row(
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.mic,
                       ),
                       Expanded(
@@ -65,23 +66,23 @@ class _HomePageState extends State<HomePage> {
                           textDirection: TextDirection.rtl,
                           child: TextField(
                             textAlign: TextAlign.start,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 14.0,
                             ),
                             showCursor: false,
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(right: 5.0),
-                              hintText: "جستجو ...",
+                              contentPadding: const EdgeInsets.only(right: 5.0),
+                              hintText: AppLocale.search.getString(context),
                               border: InputBorder.none,
                               focusedBorder: InputBorder.none,
-                              hintStyle: TextStyle(
+                              hintStyle: const TextStyle(
                                 fontFamily: 'iransans',
                               )
                             ),
                           ),
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.search,
                       ),
                     ],
@@ -236,9 +237,9 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: const EdgeInsets.only(right: 25.0, top: 20.0, bottom: 15.0),
               alignment: Alignment.centerRight,
-              child: const Text(
-                "گیاهان جدید",
-                style: TextStyle(
+              child: Text(
+                AppLocale.newplants.getString(context),
+                style: const TextStyle(
                   fontFamily: 'iransans',
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,

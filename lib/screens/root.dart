@@ -1,5 +1,6 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/models/plant.dart';
@@ -40,16 +41,18 @@ class _RootPageState extends State<RootPage> {
     Icons.person,
   ];
 
-  List<String> appbartitle = [
-    "خانه",
-    "علاقه‌مندی‌ها",
-    "سبد‌خرید",
-    "پروفایل",
-  ];
-
 
   @override
   Widget build(BuildContext context) {
+
+    List<String> appbartitle = [
+    AppLocale.home.getString(context),
+    AppLocale.alaghemandi.getString(context),
+    AppLocale.sabad.getString(context),
+    AppLocale.profile.getString(context),
+  ];
+
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,

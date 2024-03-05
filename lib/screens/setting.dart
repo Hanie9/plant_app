@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/screens/setting_option/aboutus.dart';
@@ -34,11 +35,11 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
             ),
-            const Positioned(
+            Positioned(
               right: 0.0,
               child: Text(
-                'تنظیمات',
-                style: TextStyle(
+                AppLocale.setting.getString(context),
+                style: const TextStyle(
                   fontFamily: 'iransans'
                 ),
               ),
@@ -54,36 +55,36 @@ class _SettingsState extends State<Settings> {
               onTap: () {
                 Navigator.push(context, PageTransition(child: const Language(), type: PageTransitionType.bottomToTop));
               },
-              child: const BuildOptions(
+              child: BuildOptions(
                 icon: Icons.language,
-                title: 'زبان',
+                title: AppLocale.titleLanguage.getString(context),
                 ),
               ),
             GestureDetector(
               onTap: (){
                 Navigator.push(context, PageTransition(child: const ThemeChooserPage(), type: PageTransitionType.bottomToTop));
               },
-              child: const BuildOptions(
+              child: BuildOptions(
                 icon: Icons.color_lens_outlined,
-                title: 'زمینه',
+                title: AppLocale.theme.getString(context),
               ),
             ),
             GestureDetector(
               onTap: (){
                 Navigator.push(context, PageTransition(child: const About_Us(), type: PageTransitionType.bottomToTop));
               },
-              child: const BuildOptions(
+              child: BuildOptions(
                 icon: Icons.info_outline,
-                title: 'درباره ما',
+                title: AppLocale.aboutus.getString(context),
               ),
             ),
             GestureDetector(
               onTap: (){
                 Navigator.push(context, PageTransition(child: const feedback(), type: PageTransitionType.bottomToTop));
               },
-              child: const BuildOptions(
+              child: BuildOptions(
                 icon: Icons.feedback_outlined,
-                title: 'بازخورد شما',
+                title: AppLocale.yourfeedbacks.getString(context),
               ),
             ),
           ],

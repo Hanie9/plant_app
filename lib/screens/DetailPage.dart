@@ -3,6 +3,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/models/plant.dart';
@@ -112,15 +113,15 @@ class _DetailPageState extends State<DetailPage> {
                                     crossAxisAlignment: CrossAxisAlignment.end,
                                     children: [
                                       PlantFeature(
-                                        title: 'اندازه گیاه',
+                                        title: AppLocale.andazeGol.getString(context),
                                         plantFeature: plantList[widget.plantId].size,
                                       ),
                                       PlantFeature(
-                                        title: 'رطوبت‌هوا',
+                                        title: AppLocale.humidity.getString(context),
                                         plantFeature: plantList[widget.plantId].humidity.toString(),
                                       ),
                                       PlantFeature(
-                                        title: 'دمای‌نگه‌داری',
+                                        title: AppLocale.humidity.getString(context),
                                         plantFeature: plantList[widget.plantId].temperature,
                                       ),
                                     ],
@@ -323,9 +324,9 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         );
                       },
-                  child: const Text(
-                    "افزودن‌به‌سبد‌خرید",
-                    style: TextStyle(
+                  child: Text(
+                    AppLocale.afzoodanBeSabad.getString(context),
+                    style: const TextStyle(
                       fontFamily: 'iransans',
                       fontSize: 20.0,
                       color: Colors.white,
@@ -378,9 +379,9 @@ class _DetailPageState extends State<DetailPage> {
                           ),
                         );
                       },
-                  child: const Text(
-                    'حذف‌از‌سبد‌خرید',
-                    style: TextStyle(
+                  child: Text(
+                    AppLocale.hazfAzSabad.getString(context),
+                    style: const TextStyle(
                       fontFamily: 'iransans',
                       fontSize: 20.0,
                       color: Colors.white,

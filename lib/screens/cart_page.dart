@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
 import 'package:plant_app/const/constants.dart';
 import 'package:plant_app/models/plant.dart';
 import 'package:plant_app/widgets/extensions.dart';
@@ -37,10 +38,10 @@ class _CartPageState extends State<CartPage> {
             const SizedBox(
               height: 20.0,
             ),
-            const Text(
-              'سبد خرید تار عنکبوت بسته است :(',
+            Text(
+              AppLocale.cart.getString(context),
               textDirection: TextDirection.rtl,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'iransans',
                 fontWeight: FontWeight.bold,
                 fontSize: 20.0,
@@ -92,9 +93,9 @@ class _CartPageState extends State<CartPage> {
                         ),
                       ],
                     ),
-                    const Text(
-                      'جمع کل',
-                      style: TextStyle(
+                    Text(
+                      AppLocale.jamKol.getString(context),
+                      style: const TextStyle(
                         fontFamily: 'iransans',
                         fontSize: 25.0,
                         fontWeight: FontWeight.bold,
